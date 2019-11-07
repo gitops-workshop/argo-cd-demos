@@ -18,10 +18,23 @@ Watch the demo!
 ## CLI
 
 ```
-argocd app create helm-app --repo https://github.com/gitops-workshop/argo-cd-demos.git --path helm --revision master --dest-server https://kubernetes.default.svc --dest-namespace my-app-helm
-argocd app create helm-app --repo https://github.com/gitops-workshop/argo-cd-demos.git --path kustomize --revision master --dest-server https://kubernetes.default.svc --dest-namespace my-app-kustomize
+argocd app create helm-app --repo https://github.com/gitops-workshop/helm.git --path my-app --revision master --dest-server https://kubernetes.default.svc --dest-namespace my-app-helm
+argocd app sync helm-app
 ```
 
+or
+
+```
+argocd app create kustomize-app --repo https://github.com/gitops-workshop/kustomize.git --path overlays/dev --revision master --dest-server https://kubernetes.default.svc --dest-namespace my-app-kustomize
+argocd app sync kustomize-app
+```
+
+Clean-up:
+
+```
+argocd app delete helm-app
+argocd app delete kustomize-app
+```
 
 ## Declarative
 
