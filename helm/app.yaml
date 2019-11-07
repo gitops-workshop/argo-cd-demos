@@ -3,6 +3,9 @@ kind: Application
 metadata:
   name: helm-app
   namespace: argocd
+  metadata:
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
     namespace: default
@@ -15,4 +18,6 @@ spec:
           value: Hi! Helm in Argo CD!
     path: my-app
     repoURL: https://github.com/gitops-workshop/helm
-    targetRevision: v1.0.0
+    targetRevision: master
+  syncPolicy:
+    automated: {}
