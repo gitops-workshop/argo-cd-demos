@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: kustomize-app
   namespace: argocd
+    finalizers:
+      - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
     namespace: default
@@ -11,4 +13,6 @@ spec:
   source:
     path: overlays/dev
     repoURL: https://github.com/gitops-workshop/kustomize
-    targetRevision: v1.0.0
+    targetRevision: master
+  syncPolicy:
+    automated: {}    
