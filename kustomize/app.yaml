@@ -15,4 +15,5 @@ spec:
     repoURL: https://github.com/gitops-workshop/kustomize
     targetRevision: master
   syncPolicy:
-    automated: {}    
+    automated: 
+      prune: true
