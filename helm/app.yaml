@@ -8,7 +8,7 @@ metadata:
       - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: default
+    namespace: my-app-helm
     server: https://kubernetes.default.svc
   project: default
   source:
